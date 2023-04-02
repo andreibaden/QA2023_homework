@@ -9,14 +9,12 @@ def seq_num(num):
         return "Error! Input your number > 0!"
 
     while num > 9:
-        flag = True
         last_digit = num % 10
         last2_digit = num % 100 // 10
         if last_digit <= last2_digit:
-            flag = False
-            break
+            return False
         num //= 10
-    return "YES" if flag else "NO"
+    return True
 
 
 def main():
@@ -29,8 +27,8 @@ main()
 
 
 def testing():
-    result = " 135 --> YES _" + str(seq_num(135) == "YES")
-    result += "\n 537 --> NO _" + str(seq_num(537) == "NO")
+    result = " 135 --> True _" + str(seq_num(135) == True)
+    result += "\n 537 --> False _" + str(seq_num(537) == False)
     result += "\n -9 --> Error! Input your number > 0! _" + \
               str(seq_num(-9) == "Error! Input your number > 0!")
     result += "\n 9 --> Error! Input your number > 0! _" + \
